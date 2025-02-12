@@ -1,0 +1,128 @@
+theme:
+  background-color: 0 0 0
+  primary-color: 24 97 58
+  negative-color: 209 88 54
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: docker-containers
+            hide-by-default: true
+          - type: server-stats
+            servers:
+              - type: local
+                name: Services
+          - type: clock
+            hour-format: 12h
+          - type: calendar
+          - type: twitch-channels
+            channels:
+              - theprimeagen
+              - theanthonygg
+              - tsoding
+              - fabrizioromano
+
+      - size: full
+        widgets:
+          - type: search
+            search-engine: duckduckgo
+            bangs:
+              - title: Jenkins
+                shortcut: "!jenkins"
+                url: https://jenkins-hyperswitch.sso.internal.svc.k8s.office.mum.juspay.net
+
+              - title: Grafana sandbox
+                shortcut: "!gfsand"
+                url: https://grafana.internal.staging.hyperswitch.eu.juspay.net
+
+              - title: Grafana Prod
+                shortcut: "!gfprod"
+                url: https://grafana.utils.internal.prod.hyperswitch.juspay.net
+
+              - title: Kibana Prod
+                shortcut: "!kbprod"
+                url: https://kibana.sso.utils.internal.prod.hyperswitch.juspay.net
+
+
+          - type: videos
+            style: grid-cards
+            channels:
+              - UCYO_jab_esuFRV4b17AJtAw #3blueonebrown
+              - UCUyeluBRhGPCW4rPe_UvBZQ #PrimeGen
+              - UCCwUTfKeDj4p9uTNrn9U6Sw #BBCArchive
+              - UC9-y-6csu5WGm29I7JiwpnA #Computerphile
+              - UCnbfV0YvrxWMq3h0hmo13Jg # Desi studios
+              - UC_ML5xP23TOWKUcc-oAE_Eg # Nassir Hussain
+              - UC_iD0xppBwwsrM9DegC5cQQ #Jon Jhengset
+              - UClcE-kVhqyiHCcjYwcpfj9w #LiveOverflow
+              - UCWiY6fYdxuEe78r-0uFCnhA #LongBeachGriffy
+              - UCJ24N4O0bP7LGLBDvye7oCA #Matt Dvella
+              - UCQYMhOMi_Cdj1CEAU-fv80A #Neso academy
+              - UCnC8SAZzQiBGYVSKZ_S3y4Q #Nikhil Kamath
+              - UCnHEz9DZ6EAof1-DaQGD_Xw #PPPeter
+              - UCR1IuLEqb6UEA_zQ81kwXfg #Real Engineering
+              - UC176GAQozKKjhz62H8u9vQQ #Real Science
+              - UCrqM0Ym_NbK1fqeQG2VIohg #Tsoding
+              - UCbfYPyITQ-7l4upoX8nvctg #Two Minute Paper
+              - UCHnyfMqiRRG1u-2MsSQLbXA #Vertasium
+              - UC6biysICWOJ-C3P4Tyeggzg #Low level learning
+
+
+      - size: small
+        widgets:
+          - type: releases
+            repositories:
+              - immich-app/immich
+              - glanceapp/glance
+          - type: weather
+            location: Bengaluru, India
+
+
+  - name: Articles
+    columns:
+      - size: small
+        widgets:
+          - type: rss
+            limit: 20
+            collapse-after: 3
+            style: vertical-list
+            cache: 3h
+            feeds:
+              - url: https://db.cs.cmu.edu/files/rss/pvldb-rss.xml
+              - url: https://blog.burntsushi.net/index.xml
+              - url: http://techblog.netflix.com/feeds/posts/default
+              - url: https://code.facebook.com/posts/rss
+              - url: https://blog.flipkart.tech/feed
+              - url: https://stripe.com/blog/feed.rss
+              - url: https://discord.com/blog/rss.xml
+              - url: https://blog.cloudflare.com/rss
+              - url: https://www.cockroachlabs.com/feed/
+              - url: https://hasura.io/blog/rss
+
+      - size: full
+        widgets:
+          - type: hacker-news
+            collapse-after: 15
+            limit: 30
+
+      - size: small
+        widgets:
+          - type: lobsters
+            sort-by: hot
+            tags:
+              - go
+              - rust
+              - c
+              - linux
+              - android
+              - security
+              - devops
+              - scaling
+              - performance
+              - compilers
+              - vim
+              - databases
+              - zig
+            limit: 20
+            collapse-after: 15

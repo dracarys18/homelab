@@ -1,0 +1,32 @@
+networks:
+  gitea:
+    external: false
+services:
+  server:
+    image: gitea/gitea:nightly
+    labels:
+      glance.name: Gitea
+      glance.icon: di:gitea
+      glance.url: https://gitea.karthihegde.dev
+      glance.description: Custom Git
+      glance.hide: false
+    container_name: gitea
+    restart: always
+    networks:
+      - gitea
+    volumes:
+      - ./gitea:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3001:3000"
+      - "222:22"
+    depends_on:
+      - db
+  db:
+    image: postgres:14
+    restart: always
+    networks:
+      - gitea
+    volumes:
+      - ./postgres:/var/lib/postgresql/data

@@ -1,0 +1,25 @@
+services:
+  portainer:
+    image: portainer/portainer-ee:latest
+    container_name: portainer
+    restart: always
+    labels:
+      glance.name: Portainer
+      glance.icon: di:portainer
+      glance.url: https://portainer.karthihegde.dev
+      glance.description: Container and server management
+      glance.id: portainer
+      glance.hide: false
+    ports:
+      - "8000:8000"
+      - "9443:9443"
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    command: --http-enabled
+
+volumes:
+  portainer_data:
+    external: true
+    name: portainer_data
